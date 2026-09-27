@@ -1,3 +1,4 @@
+```markdown
 # 💱 Currency Exchange Rate Tracker
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python)
@@ -16,3 +17,30 @@ A lightweight Data Engineering pipeline built in Python to extract real-time cur
          │ (HTTP GET)
          ▼
   [ Python Script ] ──► [ Pandas Data Transformation ] ──► [ PostgreSQL / Docker ]
+
+```
+
+---
+
+## 🔍 Quick Queries
+
+Commands to query the loaded records directly from the Docker container:
+
+* **Get all historical records:**
+```bash
+docker exec -it cotacoes_db psql -U user_cotacao -d db_cotacoes -c "SELECT * FROM historico_cotacoes ORDER BY data_cotacao DESC;"
+
+```
+
+
+* **Get only the latest quote for each currency:**
+```bash
+docker exec -it cotacoes_db psql -U user_cotacao -d db_cotacoes -c "SELECT DISTINCT ON (moeda) * FROM historico_cotacoes ORDER BY moeda, data_cotacao DESC;"
+
+```
+
+
+* **Export table data to a CSV file:**
+```bash
+docker exec -it cotacoes_db psql -U user_cotacao -d db_cotacoes -c "\copy historico_cotacoes TO 'cotacoes.csv' WITH CSV HEADER;"
+
