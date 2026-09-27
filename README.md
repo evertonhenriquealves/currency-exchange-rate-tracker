@@ -130,6 +130,3 @@ docker exec -it cotacoes_db psql -U user_cotacao -d db_cotacoes -c "\copy histor
 | `variacao` | `FLOAT` | Price variation |
 | `data_cotacao` | `TIMESTAMP` | Timestamp of the rate quote |
 
-```
-
-```
