@@ -19,27 +19,47 @@ A lightweight Data Engineering pipeline built in Python to extract real-time cur
 
 ```
 
----
+
+
+## ⚙️ Setup & Execution
+
+Clone the repository:
+```bash
+git clone [https://github.com/evertonhenriquealves/currency-exchange-rate-tracker.git](https://github.com/evertonhenriquealves/currency-exchange-rate-tracker.git)
+cd currency-exchange-rate-tracker
+```
+
+Install Python dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+Start the PostgreSQL container:
+```bash
+docker-compose up -d
+```
+
+Run the ETL pipeline:
+```bash
+python main.py
+```
 
 ## 🔍 Quick Queries
 
 Commands to query the loaded records directly from the Docker container:
 
-* **Get all historical records:**
+Get all historical records:
 ```bash
 docker exec -it cotacoes_db psql -U user_cotacao -d db_cotacoes -c "SELECT * FROM historico_cotacoes ORDER BY data_cotacao DESC;"
-
 ```
 
-
-* **Get only the latest quote for each currency:**
+Get only the latest quote for each currency:
 ```bash
 docker exec -it cotacoes_db psql -U user_cotacao -d db_cotacoes -c "SELECT DISTINCT ON (moeda) * FROM historico_cotacoes ORDER BY moeda, data_cotacao DESC;"
-
 ```
 
-
-* **Export table data to a CSV file:**
+Export table data to a CSV file:
 ```bash
-docker exec -it cotacoes_db psql -U user_cotacao -d db_cotacoes -c "\copy historico_cotacoes TO 'cotacoes.csv' WITH CSV HEADER;"
+docker exec -it cotacoes_db psql -U user_cotacao -d db_cotacoes -c "\copy historico_cotacoes TO '/tmp/historico_cotacoes.csv' WITH CSV HEADER;"
+```
 
