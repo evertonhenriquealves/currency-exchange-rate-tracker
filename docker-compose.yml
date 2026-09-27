@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:15
+    container_name: cotacoes_db
+    restart: always
+    environment:
+      POSTGRES_USER: user_cotacao
+      POSTGRES_PASSWORD: pass_cotacao
+      POSTGRES_DB: db_cotacoes
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_cotacoes_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_cotacoes_data:
