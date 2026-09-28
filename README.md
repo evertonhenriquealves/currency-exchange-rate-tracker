@@ -5,7 +5,9 @@
 ![Docker](https://img.shields.io/badge/Docker-Enabled-blue?style=flat-square&logo=docker)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-150458?style=flat-square&logo=pandas)
 
-A lightweight Data Engineering pipeline built in Python to extract real-time currency exchange rates (USD, EUR, BTC) from a public REST API, clean and transform the payload using Pandas, and persist time-series data into a PostgreSQL database running inside a Docker container.
+🇬🇧 A lightweight Data Engineering pipeline built in Python to extract real-time currency exchange rates (USD, EUR, BTC) from a public REST API, clean and transform the payload using Pandas, and persist time-series data into a PostgreSQL database running inside a Docker container.
+
+🇧🇷 Um pipeline leve de Engenharia de Dados desenvolvido em Python para extrair cotações de moedas em tempo real (USD, EUR, BTC) de uma API REST pública, limpar e transformar os dados com Pandas e armazenar séries temporais em um banco de dados PostgreSQL rodando em container Docker.
 
 ---
 
